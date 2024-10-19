@@ -1,0 +1,18 @@
+version: '3'
+services:
+  server1:
+    image: server1-image
+    ports:
+      - '8001:80'
+  
+  server2:
+    image: server2-image
+    ports:
+      - '8002:80'
+
+  elb:
+    image: nginx
+    ports:
+      - '8080:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
